@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Compile') {
             steps {
-                bat 'javac -cp "lib\junit-platform-console-standalone-1.14.1.jar" *.java'
+                bat 'javac -cp "lib\\junit-platform-console-standalone-1.14.1.jar" *.java'
             }
         }
         //stage('Package') {
