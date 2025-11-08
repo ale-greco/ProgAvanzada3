@@ -11,15 +11,20 @@ pipeline {
                 bat 'javac -cp "lib\\junit-platform-console-standalone-1.14.1.jar" *.java'
             }
         }
-        //stage('Package') {
-        //    steps {
-        //        bat 'jar cfm HolaMundo.jar manifest.txt *.class'
-        //    }
-        //}
-        //stage('SmokeTest') {
-        //    steps {
-        //        bat 'java -jar HolaMundo.jar'
-        //    }
-        //}
+        stage('Test') {
+            steps {
+                bat 'java -jar lib\\junit-platform-console-standalone-1.14.1.jar -cp .\\ --scan-classpath'
+            }
+        }
+        stage('Package') {
+            steps {
+                bat 'jar cfm HolaMundo.jar manifest.txt *.class'
+            }
+        }
+        stage('SmokeTest') {
+            steps {
+                bat 'java -jar HolaMundo.jar'
+            }
+        }
     }
 }
